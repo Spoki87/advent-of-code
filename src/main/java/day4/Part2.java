@@ -9,8 +9,16 @@ import java.util.Scanner;
 
 public class Part2 {
     public static void main(String[] args) throws IOException {
-        long sum = 0;
         char[][] input = loadInput();
+
+        int sum = calculate(input);
+
+        System.out.println("Answer is: "+sum);
+    }
+
+
+    private static int calculate(char[][] input){
+        int sum = 0;
 
         for (int i = 0; i < input.length; i++) {
             for (int j = 0; j < input.length; j++) {
@@ -29,16 +37,15 @@ public class Part2 {
                             sum++;
                         }
                     }catch(Exception e){
-                        continue; //out of range
+                        //System.out.println("Out of range");
                     }
                 }
             }
 
         }
 
-        System.out.println(sum);
+        return sum;
     }
-
 
     private static char[][] loadInput() throws IOException {
         File file = new File("src/main/resources/day4/input.txt");
